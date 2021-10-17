@@ -40,6 +40,10 @@ export default class Popular extends React.Component {
     this.isLoading = this.isLoading.bind(this);
   }
 
+  componentDidMount() {
+    this.selectLanguage(this.state.currentLanguage);
+  }
+
   selectLanguage(currentLanguage) {
     this.setState({
       currentLanguage,
