@@ -4,7 +4,6 @@ import {
   FaUserFriends,
   FaFighterJet,
   FaTrophy,
-  FaUser,
   FaTimesCircle,
 } from 'react-icons/fa';
 import Results from './Results';
@@ -152,7 +151,19 @@ export default class Battle extends React.Component {
     const { playerOne, playerTwo, battle } = this.state;
 
     if (battle === true) {
-      return <Results playerOne={playerOne} playerTwo={playerTwo} />;
+      return (
+        <Results
+          playerOne={playerOne}
+          playerTwo={playerTwo}
+          onReset={() =>
+            this.setState({
+              playerOne: null,
+              playerTwo: null,
+              battle: false,
+            })
+          }
+        />
+      );
     }
 
     return (
