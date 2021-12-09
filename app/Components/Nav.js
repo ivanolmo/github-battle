@@ -2,7 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { ThemeConsumer } from '../contexts/theme';
 
-const isActive = ({ isActive }) => ({ color: isActive && 'rgb(187, 46, 31)' });
+const activeStyle = {
+  color: 'rgb(187, 46, 31)',
+};
 
 export default function Nav() {
   return (
@@ -11,12 +13,21 @@ export default function Nav() {
         <nav className='row space-between'>
           <ul className='row nav'>
             <li>
-              <NavLink to='/' style={isActive} className='nav-link'>
+              <NavLink
+                exact
+                to='/'
+                activeStyle={activeStyle}
+                className='nav-link'
+              >
                 Popular
               </NavLink>
             </li>
             <li>
-              <NavLink to='/battle' style={isActive} className='nav-link'>
+              <NavLink
+                to='/battle'
+                activeStyle={activeStyle}
+                className='nav-link'
+              >
                 Battle
               </NavLink>
             </li>
