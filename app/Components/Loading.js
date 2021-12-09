@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const stlyes = {
+const styles = {
   content: {
     fontSize: '45px',
     position: 'absolute',
@@ -13,13 +13,9 @@ const stlyes = {
 };
 
 export default class Loading extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      content: props.text,
-    };
-  }
+  state = {
+    content: this.props.text,
+  };
 
   componentDidMount() {
     const { speed, text } = this.props;
@@ -38,7 +34,7 @@ export default class Loading extends React.Component {
   }
 
   render() {
-    return <p style={stlyes.content}>{this.state.content}</p>;
+    return <p style={styles.content}>{this.state.content}</p>;
   }
 }
 
